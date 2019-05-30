@@ -1,0 +1,89 @@
+/*------------------------------------------(import)------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Ubuntu&display=swap');
+
+/*------------------------------------------(var)------------------------------------------*/
+:root
+{
+  /*fonts*/
+  --ubuntu: 'Ubuntu', sans-serif;
+  --source: 'Source Sans Pro', sans-serif;
+  /*colors*/
+  --gray-light: #ccc;
+  --gray-dark: #8c8c8c;
+  --white-dirty: #fafafa;
+  --white: #fff;
+  /*size*/
+}
+
+/*------------------------------------------(body)------------------------------------------*/
+body
+{
+  background-image: url("../media/img/wall.png");
+  text-align: center;
+  font-family: var(--source);
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  font-family: var(--ubuntu);
+}
+
+
+/*------------------------------------------(class)------------------------------------------*/
+.ser
+{
+  background-color: var(--gray-light);
+}
+
+.search
+{
+  position: absolute;
+  left: 40%;
+}
+
+.logo{
+  margin-left: 8px;
+}
+
+.nav
+{
+  padding: 7px 0px;
+  background-color: var(--gray-light);
+  transition: 0.2s;
+}
+
+.nav:hover{
+  background-color: var(--gray-dark);
+  transition: 0.2s;
+}
+
+.nav-link, .log-link a
+{
+  font-family: var(--ubuntu);
+  color: var(--white-dirty);
+  transition: 0.2s;
+}
+
+.nav-link:hover, .log-link a:hover
+{
+  color: var(--gray-light);
+  text-decoration: none;
+}
+
+.flushr
+{
+  position: absolute;
+  right: 2%;
+  margin-top: 7px;
+}
+
+.log-link
+{
+  text-decoration: none;
+}
+/*------------------------------------------(id)------------------------------------------*/
+#user
+{
+  border: 3px solid #aaa;
+  border-radius: 100%;
+}
