@@ -1,7 +1,6 @@
 # Web de blogs, Alien technology
+# Autores: ¥$ariel¥, ZGTT911
 
-# Autores: ¥$ariel¥
-#          ZGTT911
 
 ## 0.1 Beta
 
