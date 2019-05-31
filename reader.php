@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="author" content="ZGTT911">
     <meta name="author" content="¥$ariel¥">
-    <title>Alien Technology</title>
+    <title>Blog - Alien Reader</title>
   </head>
 
   <body>
