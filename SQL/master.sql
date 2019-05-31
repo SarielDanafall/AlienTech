@@ -20,5 +20,6 @@ CREATE TABLE blog
   title VARCHAR(100) NOT NULL,
   img BLOB NOT NULL,
   body TEXT NOT NULL,
+  descripcion VARCHAR(500) NOT NULL,
   author VARCHAR(35) NOT NULL
 );

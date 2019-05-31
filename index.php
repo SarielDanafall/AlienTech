@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -30,7 +30,7 @@
         <?php
           $user = "User test";
 
-          if ($user != "") {
+          if ($user == "") {
             echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
           } else {
             echo "<abbr title=\"$user\"><img id=\"user\" src=\"media/img/user.png\" width=\"32px\"></abbr>";
@@ -39,5 +39,54 @@
       </div>
     </nav>
     <h1>Alien Technology</h1>
+    <h2 id="banner">Destacado &#11088;</h2>
+    <center>
+      <?php
+      include 'php/conn.php';
+
+      for ($i=0; $i < 5; $i++) { 
+        echo "<div id=\"preview\">";
+        echo "<a href=\"#\" class=\"link\">";
+        echo "<h3>Title</h3>";
+        echo "<p>Author &#124; Hace 1 hora.</p> <br>";
+        echo "<img src=\"media/img/icon-web.png\">";
+        echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>";
+        echo "</a>";
+        echo "</div>";
+      }
+      ?>
+    </center>
+    <h2 id="banner">Nuevo &#127381;</h2>
+    <center><?php
+    include 'php/conn.php';
+
+      for ($i=0; $i < 5; $i++) { 
+        echo "<div id=\"preview\">";
+        echo "<a href=\"#\" class=\"link\">";
+        echo "<h3>Title</h3>";
+        echo "<p>Author &#124; Hace 1 hora.</p> <br>";
+        echo "<img src=\"media/img/icon-web.png\">";
+        echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>";
+        echo "</a>";
+        echo "</div>";
+      }
+      ?></center>
+    <h2 id="banner">Mas leido &#128083;</h2>
+    <center>
+    <?php
+    include 'php/conn.php';
+
+      for ($i=0; $i < 5; $i++) { 
+        echo "<div id=\"preview\">";
+        echo "<a href=\"#\" class=\"link\">";
+        echo "<h3>Title</h3>";
+        echo "<p>Author &#124; Hace 1 hora.</p> <br>";
+        echo "<img src=\"media/img/icon-web.png\">";
+        echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>";
+        echo "</a>";
+        echo "</div>";
+      }
+      ?>
+      </center>
   </body>
 </html>

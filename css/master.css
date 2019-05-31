@@ -87,3 +87,55 @@ h1,h2,h3,h4,h5,h6
   border: 3px solid #aaa;
   border-radius: 100%;
 }
+
+#banner
+{
+  padding: 5px 0px;
+  margin: 20px 40%;
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(to right, #bbb 0%, #fafafa 50%, #bbb 100%);
+  border-image-slice: 1;
+} 
+
+#preview
+{
+  width: 75%;
+  margin-bottom: 10px;
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 300px;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-image: linear-gradient(to top left, #bbb 0%, #fafafa 100%);
+  border-image-slice: 1;
+}
+
+#preview a img
+{
+  height: 250px;
+}
+
+#preview a
+{
+  text-align: left;
+  color: #000;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+#preview a p
+{
+  margin: 25px;
+}
+
+#preview a:hover
+{
+  color: #555;
+  text-decoration: none;
+  text-decoration-line: none; 
+}
+
+#preview a h3
+{
+  text-align: center
+}
