@@ -7,7 +7,15 @@
     <meta charset="utf-8">
     <meta name="author" content="ZGTT911">
     <meta name="author" content="¥$ariel¥">
-    <title>Blog - Alien Reader</title>
+    <?php 
+    //include 'php/conn.php';
+
+    $title = "Blog test";
+    echo "<title>$title - Alien Reader</title>";
+
+    //$conn.close();
+     ?>
+    
   </head>
 
   <body>
@@ -38,9 +46,15 @@
         ?>
       </div>
     </nav>
-    <h1>Title</h1>
-    <img src="media/img/icon-web.png" width="500px">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Author</p>
+    <?php 
+    //include 'php/conn.php';
+    include 'php/Parsedown.php';
+    $Parsedown = new Parsedown();
+    $body = "#Titulo\n\n## Subtitulo 1\n### Subtitulo 2\n### Subtitulo 3\n\n1. Lista ordenada\n2. Lista ordenada\n3. Lista ordenada\n4. Lista ordenada\n\n* Lista desorganizada\n* Lista desorganizada\n* Lista desorganizada\n* Lista desorganizada\n\n**Negrita**\n###### Autor";
+
+    echo $Parsedown->text($body);
+
+    //$conn.close();
+     ?>
   </body>
 </html>

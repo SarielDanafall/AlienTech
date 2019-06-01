@@ -20,3 +20,7 @@
 * blog table created (very WIP)
 * reader blog (No usable)
 * inicio con recomendaciones (WIP)
+
+## 0.1.4 Beta (Work in progress)
+* Inclusion de ParseDown (**MarkDown -> HTML**)
+* reader blog, inclusion de ParseDown
