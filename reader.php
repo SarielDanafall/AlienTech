@@ -7,13 +7,20 @@
     <meta charset="utf-8">
     <meta name="author" content="ZGTT911">
     <meta name="author" content="¥$ariel¥">
-    <?php 
-    //include 'php/conn.php';
+    <?php
+    include 'php/conn.php';
 
-    $title = "Blog test";
-    echo "<title>$title - Alien Reader</title>";
+    # get method id
+    $id = $_GET('token');
 
-    //$conn.close();
+    # sql single query
+    $sql = "SELECT * FROM products WHERE id = $id";
+    $sth = $conn->query($sql);
+    $result=mysqli_fetch_array($sth);
+
+    echo "<title>$result['title'] - Alien Reader</title>";    
+
+    $conn.close();
      ?>
     
   </head>
@@ -36,25 +43,46 @@
       </form>
       <div class="flushr">
         <?php
-          $user = "User test";
+          include 'php/conn.php';
+          $id_user = $_POST('id');
 
-          if ($user != "") {
-            echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
-          } else {
-            echo "<abbr title=\"$user\"><img id=\"user\" src=\"media/img/user.png\" width=\"32px\"></abbr>";
+          $triger = false;
+          while(($row = $result->fetch_assoc()) && (!$triger))
+          {
+            if ((row["nick"] == $user) && passCheck($passwd, row["passwd"]))
+            {
+              $triger = true;
+              echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row['img'] ).'\" width=\"32px\"></abbr>";
+            }
           }
+
+          if ($triger)
+          {
+            echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
+          }
+        $conn.close();
         ?>
       </div>
     </nav>
+    <br>
     <?php 
-    //include 'php/conn.php';
+    include 'php/conn.php';
     include 'php/Parsedown.php';
+
+    # get method id
+    $id = $_GET('token');
+
+    # parsedown class
     $Parsedown = new Parsedown();
-    $body = "#Titulo\n\n## Subtitulo 1\n### Subtitulo 2\n### Subtitulo 3\n\n1. Lista ordenada\n2. Lista ordenada\n3. Lista ordenada\n4. Lista ordenada\n\n* Lista desorganizada\n* Lista desorganizada\n* Lista desorganizada\n* Lista desorganizada\n\n**Negrita**\n###### Autor";
 
-    echo $Parsedown->text($body);
+    # sql single query
+    $sql = "SELECT * FROM products WHERE id = $id";
+    $sth = $conn->query($sql);
+    $result=mysqli_fetch_array($sth);
 
-    //$conn.close();
+    echo $Parsedown->text($result['body']);
+
+    $conn.close();
      ?>
   </body>
 </html>

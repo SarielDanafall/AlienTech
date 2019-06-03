@@ -11,14 +11,14 @@
       <div class="login-box">
         <img class="avatar" src="media/img/icon-web.png" alt="Logo Alientech">
         <h1>Iniciar Sesion</h1>
-        <form method="POST" action="#">
+        <form method="POST" action="php/validation.php">
           <!-- Usuario -->
           <label for="Usuario">Usuario</label>
-          <input type="text" placeholder="Nombre de usuario">
+          <input type="text" placeholder="Nombre de usuario" name="user">
 
           <!-- Contraseña -->
           <label for="Contraseña">Contraseña</label>
-          <input type="password" placeholder="Contraseña">
+          <input type="password" placeholder="Contraseña" name="passwd">
 
           <!-- Boton -->
           <input type="submit" value="Iniciar Sesión">

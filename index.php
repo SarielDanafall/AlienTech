@@ -28,13 +28,24 @@
       </form>
       <div class="flushr">
         <?php
-          $user = "User test";
+          include 'php/conn.php';
+          $id_user = $_POST('id');
 
-          if ($user == "") {
-            echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
-          } else {
-            echo "<abbr title=\"$user\"><img id=\"user\" src=\"media/img/user.png\" width=\"32px\"></abbr>";
+          $triger = false;
+          while(($row = $result->fetch_assoc()) && (!$triger))
+          {
+            if ((row["nick"] == $user) && passCheck($passwd, row["passwd"]))
+            {
+              $triger = true;
+              echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row['img'] ).'\" width=\"32px\"></abbr>";
+            }
           }
+
+          if ($triger)
+          {
+            echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
+          }
+        $conn.close();
         ?>
       </div>
     </nav>

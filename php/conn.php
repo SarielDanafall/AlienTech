@@ -1,9 +1,9 @@
 <?php
 //connection variables
-$servername = "localhost";
-$username = "root";
-$password = "zegatta911";
-$dbname = "motor";
+$servername = "localhost"; # server location, usualy is "localhost"
+$username = "root"; # user nick, usually is "root"
+$password = ""; # passwd of the user
+$dbname = ""; # Database of the WEB
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
