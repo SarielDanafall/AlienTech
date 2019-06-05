@@ -22,9 +22,12 @@
 * inicio con recomendaciones (WIP)
 
 ## 0.1.4 Alpha (Work in progress)
-* Inclusion de ParseDown (**MarkDown -> HTML**)
+* Inclusion de ParseDown (**MarkDown -> HTML**, via *PHP*)
 * reader blog, inclusion de ParseDown
 
 ## 0.1.5 Alpha (Work in progress)
 * Inclusion de MySQL connector a reader y index.
 * Backend login.
+
+##0.1.6 Alpha (Work in progress)
+* Inclusion de ShowDown (**MarkDown -> HTML**, via *JavaScript*)
