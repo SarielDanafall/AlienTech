@@ -25,13 +25,25 @@
       </form>
       <div class="flushr">
         <?php
-          $user = "User test";
+          include 'php/conn.php';
+          $id_user = $_GET('id');
 
-          if ($user != "") {
-            echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"#\">Login</a></span>";
-          } else {
-            echo "<abbr title=\"$user\"><img id=\"user\" src=\"media/img/user.png\" width=\"32px\"></abbr>";
+
+          $sql = "SELECT * FROM user Where auth_key = '$id_user'";
+          $sth = $conn->query($sql);
+          $row = mysqli_fetch_array($sth);
+
+
+
+          if ($row['auth_key'] != "")
+          {
+            echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row'img'] ).'\" width=\"32px\"></abbr>";
           }
+          else
+          {
+            echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
+          }
+        $conn.close();
         ?>
       </div>
     </nav>
@@ -39,10 +51,16 @@
     <h2>Using MD5</h2>
     <p>
       <?php
+      include ('php/passwd.php');
+
       $passwd = $_GET['pass'];
-      $hashed_pass = md5($passwd);
+      $hashed_pass = passHash($passwd);
 
       echo "The password is: ", $passwd, "<br>The hash of the password is: ", $hashed_pass;
+
+      $hashed_pass = authKey($passwd);
+
+      echo "<br> The Auth key is: ", $hashed_pass;
       ?>
     </p>
   </body>

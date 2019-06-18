@@ -31,3 +31,4 @@
 
 ## 0.1.6 Alpha (Work in progress)
 * Inclusion de ShowDown (**MarkDown -> HTML**, via *JavaScript*)
+* Inclusion de SQL en all web.

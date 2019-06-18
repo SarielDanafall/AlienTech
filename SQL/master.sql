@@ -8,8 +8,9 @@ CREATE TABLE user
   nick VARCHAR(35) UNIQUE NOT NULL,
   name VARCHAR(20) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
-  passwd CHAR(199) NOT NULL,
+  passwd CHAR(35) NOT NULL,
   img BLOB NOT NULL,
+  auth_key CHAR(35),
   root BIT NOT NULL DEFAULT 0
 );
 
@@ -21,5 +22,8 @@ CREATE TABLE blog
   img BLOB NOT NULL,
   body TEXT NOT NULL,
   descripcion VARCHAR(500) NOT NULL,
-  author VARCHAR(35) NOT NULL
+  author VARCHAR(35) NOT NULL,
+  likes INT NOT NULL DEFAULT 0,
+  views INT NOT NULL DEFAULT 0,
+  creation_date DATETIME NOT NULL DEFAULT GETDATE()
 );

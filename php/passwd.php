@@ -1,17 +1,40 @@
 <?php
 
-  public function passHash($passwd)
+  function passHash($passwd)
   {
     $hash = md5($passwd);
 
     return $hash;
   }
 
-  public function passCheck($passwd, $hash_passwd)
+  function passCheck($passwd, $hash_passwd)
   {
     $hash = passHash($passwd);
 
     if ($hash == $hash_passwd)
+    {
+      return True;
+    }
+
+    return False;
+  }
+
+  function authKey($key)
+  {
+    $t = $key;
+    for ($i=0; $i < 5 ; $i++) { 
+      $hash = passHash($t);
+      $t = $hash;
+    }
+
+    return $t;
+  }
+
+  function authCkech($key, $hash_key)
+  {
+    $hash = authKey($key);
+
+    if ($hash == $hash_key)
     {
       return True;
     }

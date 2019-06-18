@@ -44,19 +44,20 @@
       <div class="flushr">
         <?php
           include 'php/conn.php';
-          $id_user = $_POST('id');
+          $id_user = $_GET('id');
 
-          $triger = false;
-          while(($row = $result->fetch_assoc()) && (!$triger))
+
+          $sql = "SELECT * FROM user Where auth_key = '$id_user'";
+          $sth = $conn->query($sql);
+          $row = mysqli_fetch_array($sth);
+
+
+
+          if ($row['auth_key'] != "")
           {
-            if ((row["nick"] == $user) && passCheck($passwd, row["passwd"]))
-            {
-              $triger = true;
-              echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row['img'] ).'\" width=\"32px\"></abbr>";
-            }
+            echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row'img'] ).'\" width=\"32px\"></abbr>";
           }
-
-          if ($triger)
+          else
           {
             echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
           }

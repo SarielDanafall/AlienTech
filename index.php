@@ -29,19 +29,20 @@
       <div class="flushr">
         <?php
           include 'php/conn.php';
-          $id_user = $_POST('id');
+          $id_user = $_GET('id');
 
-          $triger = false;
-          while(($row = $result->fetch_assoc()) && (!$triger))
+
+          $sql = "SELECT * FROM user Where auth_key = '$id_user'";
+          $sth = $conn->query($sql);
+          $row = mysqli_fetch_array($sth);
+
+
+
+          if ($row['auth_key'] != "")
           {
-            if ((row["nick"] == $user) && passCheck($passwd, row["passwd"]))
-            {
-              $triger = true;
-              echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row['img'] ).'\" width=\"32px\"></abbr>";
-            }
+            echo "<abbr title=\"$row['nick']\"><img id=\"user\" src=\"data:image/jpeg;base64,'.base64_encode( $row'img'] ).'\" width=\"32px\"></abbr>";
           }
-
-          if ($triger)
+          else
           {
             echo "<span class=\"log-link\"><a href=\"#\">Register</a> &#124; <a href=\"login.html\">Login</a></span>";
           }
@@ -55,15 +56,25 @@
       <?php
       include 'php/conn.php';
 
-      for ($i=0; $i < 5; $i++) { 
-        echo "<div id=\"preview\">";
-        echo "<a href=\"#\" class=\"link\">";
-        echo "<h3>Title</h3>";
-        echo "<p>Author &#124; Hace 1 hora.</p> <br>";
-        echo "<img src=\"media/img/icon-web.png\">";
-        echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>";
-        echo "</a>";
-        echo "</div>";
+      $sql = "SELECT * FROM blog ORDER BY likes LIMIT 5";
+
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<div id=\"preview\">";
+              echo "<a href=\"#\" class=\"link\">";
+              echo "<h3>$row['title']</h3>";
+              echo "<p>$row['author'] &#124; Hace χ hora.</p> <br>";
+              echo "<img src=\"media/img/icon-web.png\">";
+              echo "<p>$row['descripcion']</p>";
+              echo "</a>";
+              echo "</div>";
+          }
+      } else {
+          echo "<h2>0 results</h2>";
       }
       ?>
     </center>
@@ -71,15 +82,25 @@
     <center><?php
     include 'php/conn.php';
 
-      for ($i=0; $i < 5; $i++) { 
-        echo "<div id=\"preview\">";
-        echo "<a href=\"#\" class=\"link\">";
-        echo "<h3>Title</h3>";
-        echo "<p>Author &#124; Hace 1 hora.</p> <br>";
-        echo "<img src=\"media/img/icon-web.png\">";
-        echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>";
-        echo "</a>";
-        echo "</div>";
+      $sql = "SELECT * FROM blog ORDER BY creation_date LIMIT 5";
+
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<div id=\"preview\">";
+              echo "<a href=\"#\" class=\"link\">";
+              echo "<h3>$row['title']</h3>";
+              echo "<p>$row['author'] &#124; Hace χ hora.</p> <br>";
+              echo "<img src=\"media/img/icon-web.png\">";
+              echo "<p>$row['descripcion']</p>";
+              echo "</a>";
+              echo "</div>";
+          }
+      } else {
+          echo "<h2>0 results</h2>";
       }
       ?></center>
     <h2 id="banner">Mas leido &#128083;</h2>
@@ -87,15 +108,25 @@
     <?php
     include 'php/conn.php';
 
-      for ($i=0; $i < 5; $i++) { 
-        echo "<div id=\"preview\">";
-        echo "<a href=\"#\" class=\"link\">";
-        echo "<h3>Title</h3>";
-        echo "<p>Author &#124; Hace 1 hora.</p> <br>";
-        echo "<img src=\"media/img/icon-web.png\">";
-        echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>";
-        echo "</a>";
-        echo "</div>";
+      $sql = "SELECT * FROM blog ORDER BY views LIMIT 5";
+
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<div id=\"preview\">";
+              echo "<a href=\"#\" class=\"link\">";
+              echo "<h3>$row['title']</h3>";
+              echo "<p>$row['author'] &#124; Hace χ hora.</p> <br>";
+              echo "<img src=\"media/img/icon-web.png\">";
+              echo "<p>$row['descripcion']</p>";
+              echo "</a>";
+              echo "</div>";
+          }
+      } else {
+          echo "<h2>0 results</h2>";
       }
       ?>
       </center>
